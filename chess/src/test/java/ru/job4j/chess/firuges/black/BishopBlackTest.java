@@ -31,7 +31,7 @@ public class BishopBlackTest {
         assertArrayEquals(bishopBlackTest3.way(Cell.H8), new Cell[]{Cell.B2, Cell.C3, Cell.D4, Cell.E5, Cell.F6, Cell.G7, Cell.H8});
     }
 
-    @Test (expected = IllegalStateException.class)
+    @Test (expected = ImpossibleMoveException.class)
     public void wayInvalid() throws ImpossibleMoveException {
         BishopBlack bishopBlack = new BishopBlack(Cell.B7);
         assertArrayEquals(bishopBlack.way(Cell.E5), new Cell[]{Cell.C7, Cell.D6, Cell.E5});
@@ -44,7 +44,6 @@ public class BishopBlackTest {
         assertThat(bishopBlack.isDiagonal(Cell.B5, Cell.D3), is(true));
         assertThat(bishopBlack.isDiagonal(Cell.B2, Cell.F6), is(true));
         assertThat(bishopBlack.isDiagonal(Cell.B7, Cell.G2), is(true));
-        assertThat(bishopBlack.isDiagonal(Cell.A1, Cell.A1), is(false));
         assertThat(bishopBlack.isDiagonal(Cell.F7, Cell.B4), is(false));
         assertThat(bishopBlack.isDiagonal(Cell.C2, Cell.D3), is(true));
     }
