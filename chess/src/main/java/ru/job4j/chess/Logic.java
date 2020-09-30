@@ -21,6 +21,14 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for (int i = 0; i < index; i++) {
+            Figure figure = figures[i];
+            for (Cell cell : steps) {
+                if(figure.position().equals(cell)) {
+                    throw new OccupiedCellException("You cannot move to an occupied cell");
+                }
+            }
+        }
         return true;
     }
 
